@@ -34,6 +34,25 @@ chmod +x install.sh
 # 4. Install and Run
 ./install.sh
 
+## 🔧 Linux Troubleshooting
+
+If you see an error like `Xlib.error.DisplayConnectionError`, it means your specific Linux setup (Wayland) is blocking the app.
+
+**Solution 1 (Quick Fix):**
+Run this command in your terminal before starting the app:
+```bash
+    xhost +SI:localuser:$(whoami)
+
+**Solution 2 (Recommended):
+
+-Log out of Ubuntu.
+
+-Click the Gear Icon ⚙️ on the login screen.
+
+-Select Ubuntu on Xorg.
+
+-Log back in and run the app.
+
 🛠️ Requirements
    . Webcam
 
