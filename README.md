@@ -1,6 +1,8 @@
 # 🖱️ AI Gesture Mouse
 
-A touch-free mouse controller built with Python, OpenCV, and MediaPipe. Control your mouse just by moving your hands!
+A touch-free mouse controller built with Python, OpenCV, and MediaPipe. Control your computer entirely with hand gestures!
+
+![Gesture Demo](https://img.shields.io/badge/Status-Active-success) ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-blue)
 
 ## ✨ Features
 - **👆 Move Cursor:** Point with your Index finger.
@@ -34,28 +36,29 @@ chmod +x install.sh
 # 4. Install and Run
 ./install.sh
 
-## 🔧 Linux Troubleshooting
+🔧 Troubleshooting (Common Errors)
+If the app isn't working, check the solutions below for your specific error.
 
-If you see an error like `Xlib.error.DisplayConnectionError`, it means your specific Linux setup (Wayland) is blocking the app.
-
-**Solution 1 (Quick Fix):**
+🔴 Error 1: "Xlib.error.DisplayConnectionError"
+Cause: Your Linux system is using Wayland (default on Ubuntu), which blocks screen control apps for security.
+Solution:
 Run this command in your terminal before starting the app:
-```bash
-    xhost +SI:localuser:$(whoami)
 
-**Solution 2 (Recommended):
+xhost +SI:localuser:$(whoami)
+If that doesn't work: Log out of Ubuntu, click the Gear Icon ⚙️ on the login screen, and select "Ubuntu on Xorg".
 
--Log out of Ubuntu.
+🔴 Error 2: "AttributeError: module 'mediapipe' has no attribute 'solutions'"
+Cause: You have an incompatible version of MediaPipe.
+Solution:
+Run these commands to install the correct version:
 
--Click the Gear Icon ⚙️ on the login screen.
-
--Select Ubuntu on Xorg.
-
--Log back in and run the app.
+source venv/bin/activate
+pip install mediapipe==0.10.14
 
 🛠️ Requirements
-   . Webcam
+- Webcam
 
-   . Good lighting for best accuracy
+- Good lighting for best accuracy
 
-   . Python 3.9+ (If running from source manually)
+- Python 3.10+ (If running from source manually)
+
